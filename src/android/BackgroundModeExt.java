@@ -343,8 +343,11 @@ public class BackgroundModeExt extends CordovaPlugin {
 
         if (!isDimmed())
             return;
-
+        /*
         int level = PowerManager.SCREEN_DIM_WAKE_LOCK |
+                    PowerManager.ACQUIRE_CAUSES_WAKEUP;
+        */
+     int level = PowerManager.PARTIAL_WAKE_LOCK |
                     PowerManager.ACQUIRE_CAUSES_WAKEUP;
 
         wakeLock = pm.newWakeLock(level, "backgroundmode:wakelock");
